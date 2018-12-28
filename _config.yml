@@ -1,1 +1,33 @@
-theme: jekyll-theme-minimal
+# url settings
+url: "www.fahimfarook.me"
+baseurl: "" # the subpath of your site, e.g. /blog
+
+# site details
+author: &author Fahim Farook
+title: "Fahim on Software"
+description: "Ramblings on programming and software design" 
+image: &image "/img/avatar.png"
+language: en-us
+
+# defauls
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+      comments: true
+      page-share: true
+  - scope:
+      path: ""
+    values:
+      layout: "page"
+      author: *author
+      image: *image
+
+# build settings
+theme: jekyll-theme-fos
+# remote-theme: fahimfarookme/jekyll-theme-fos@main
+
+# number of post previews index.html
+paginate: 3

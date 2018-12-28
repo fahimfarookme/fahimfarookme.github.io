@@ -1,0 +1,38 @@
+---
+layout: page
+title: Browse Tags
+description:
+tags:
+comments:
+page-share:
+image:
+permalink: /tags/
+---
+
+{%-  capture distinct_tags -%}
+    {%-  for tag in site.tags -%}
+        {{- tag | first -}}{%-  unless forloop.last -%}|{%-  endunless -%}
+    {%-  endfor -%}
+{%-  endcapture -%}
+{%-  assign sorted_distinct_tags = distinct_tags | split:"|" | sort -%}
+
+<div class="fos-tags">
+{%-  for tag in sorted_distinct_tags -%}
+    <a href="#{{- tag -}}">{{- tag -}}&nbsp;({{site.tags[tag].size}})</a>
+{%-  endfor -%}
+</div>
+
+{%-  for tag in sorted_distinct_tags -%}
+    <section>
+        <h3 id="{{- tag -}}">{{- tag -}}</h3>
+        <ul>
+        {%-  for post in site.tags[tag] -%}
+            <li class="d-flex flex-row justify-content-start align-items-end bullet">
+                <a href="{{- post.url -}}" class="underline">{{- post.title -}}</a>
+                <span class="color-grey">&nbsp;-&nbsp;</span>
+                {%- include date.html date=post.date -%}
+            </li>
+        {%-  endfor -%}
+        </ul>
+    </section>
+{%-  endfor -%}

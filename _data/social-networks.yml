@@ -1,0 +1,67 @@
+email:
+  title: Email
+  icon: "fi fi-email"
+  url: "mailto:fahim@fahimfarook.me"
+  username: "fahim@fahimfarook.me"
+
+github:
+  title: "GitHub"
+  icon: "fi fi-github"
+  url: "https://github.com/fahimfarookme"
+  username: "fahimfarookme"
+
+stackoverflow:
+  title: "StackOverflow"
+  icon: "fi fi-stack-overflow"
+  url: "https://stackoverflow.com/users/2663572/fahim-farook"
+  username: "fahimfarookme"
+
+linkedin:
+  title: "LinkedIn"
+  icon: "fi fi-linkedin"
+  url: "https://linkedin.com/in/fahimfarookme"
+  username: "fahimfarookme"
+  share-url: "https://www.linkedin.com/shareArticle?mini=true&url="
+
+twitter:
+  title: "Twitter"
+  icon: "fi fi-twitter"
+  url: "https://twitter.com/fahimfarookme"
+  username: "fahimfarookme"
+  share-url: "https://twitter.com/intent/tweet?text="
+
+google-plus:
+  title: "Google Plus"
+  icon: "fi fi-google-plus"
+  share-url: "https://plus.google.com/share?url="
+
+facebook:
+  title: "Facebook"
+  icon: "fi fi-facebook"
+  share-url: "https://www.facebook.com/sharer/sharer.php?u="
+
+reddit:
+  title: "Reddit"
+  icon: "fi fi-reddit"
+  share-url: "http://reddit.com/submit?url="
+
+feed:
+  title: "Feed"
+  url: "/atom.xml"
+  icon: "fi fi-rss"
+  username:
+
+links:
+  - email
+  - github
+  - stackoverflow
+  - linkedin
+  - twitter
+  - feed
+
+page-share:
+  - linkedin
+  - twitter
+  - facebook
+  - google-plus
+  - reddit
