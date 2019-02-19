@@ -1,0 +1,12 @@
+<!-- scripts -->
+{%- if layout.js -%}
+    {%- for href in layout.js -%}
+        <script src="{{- href -}}" /></script>
+    {%- endfor -%}
+{%- endif -%}
+
+{%- if page.js -%}
+    {%- for href in page.js -%}
+        <script src="{{- href -}}" /></script>
+    {%- endfor -%}
+{%- endif -%}

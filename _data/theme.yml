@@ -1,0 +1,17 @@
+font:
+  href:
+    - "/css/fonts.css"
+  brand: "'Helvetica Neue', Helvetica, sans-serif"
+  header: "et-book" 
+  body: "et-book"
+  code: "Monaco, Consolas, sans-serif"
+  numeral: "et-book-roman-old-style"
+
+color:
+  black: "#404040"
+  white: "#FFFFFF"
+  grey: "#8D8D8D"
+  primary: "#9C5284"
+  secondary: "#FFFFF8"
+
+  

@@ -1,0 +1,10 @@
+{%- if site.data.analytics.facebook.app-id -%}
+    <meta property="fb:app_id" content="{{- site.data.analytics.facebook.app-id -}}" />
+{%- endif -%}
+
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="{{- site.language -}}" />
+<meta property="og:title" content="{{- page.title -}}" />
+<meta property="og:description" content="{{- page.description -}}">
+<meta property="og:url" content="{{- site.url -}}{{- page.url -}}" />
+<meta property="og:image" content="{{- site.url -}}{{- page.image -}}" />

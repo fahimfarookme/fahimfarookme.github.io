@@ -1,0 +1,10 @@
+{%-  if site.data.social-networks.links -%}
+  <ul class="fos-social-icons d-flex pl-0">
+    {%-  for link in site.data.social-networks.links -%}
+        {%-  assign element = site.data.social-networks[link] -%}
+        {%-  if element -%}
+          <li><a href="{{- element.url -}}" rel="noopener noreferrer" target="_blank"><i class="{{- element.icon -}}"></i></a></li>
+        {%-  endif -%}
+    {%-  endfor -%}
+  </ul>
+{%-  endif -%}

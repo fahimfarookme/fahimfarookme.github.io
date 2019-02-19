@@ -1,0 +1,40 @@
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="author" content="{{- page.author -}}" />
+<meta name="description" content="{{- page.description -}}">
+<meta name="keywords" content="{{- page.author -}}, {{- page.title -}}, {{- page.description -}}" />
+{%- include facebook-og.html -%}
+{%- include twitter-summary.html -%}
+
+{%- assign title = site.title -%}
+{%- unless title -%}
+    {%- assign title = page.title -%}
+{%- endunless -%}
+<title>{{- title -}}</title>
+
+<link rel="alternate" type="application/rss+xml" href="{{- site.baseurl -}}atom.xml" />
+
+<!-- stylesheets -->
+{%- if layout.css -%}
+    {%- for href in layout.css -%}
+        <link rel="stylesheet" href="{{- href -}}" />
+    {%- endfor -%}
+{%- endif -%}
+
+{%- if page.css -%}
+    {%- for href in page.css -%}
+        <link rel="stylesheet" href="{{- href -}}" />
+    {%- endfor -%}
+{%- endif -%}
+
+<!-- fonts -->
+{%- if site.data.theme.font.href -%}
+    {%- for href in site.data.theme.font.href -%}
+        <link rel="stylesheet" href="{{- href -}}">
+    {%- endfor -%}
+{%- endif -%}
+
+<!-- analytics -->
+{%- include google-tm-gtag.html -%}
+{%- include google-tm-head.html -%}

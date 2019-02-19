@@ -1,0 +1,9 @@
+<div class="fos-navigation container p-0">
+  {%- if site.data.navigation -%}
+    <nav class="fos-navigation__wrapper d-flex flex-column justify-content-center align-items-center">
+      {%- for nav in site.data.navigation -%}
+        <a href="{{- nav[1] -}}"><h2>{{- nav[0] -}}</h2></a>
+      {%- endfor -%}
+    </nav>
+  {%- endif -%}
+</div>

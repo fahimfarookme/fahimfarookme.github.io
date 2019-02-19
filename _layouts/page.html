@@ -1,0 +1,22 @@
+---
+layout: base
+---
+
+<div class="fos-container fos-page container">
+    
+    {%- include top-bar.html -%}
+
+    <main class="row">
+        <div class="fos-fixed-col"></div>
+        <div class="col">
+        {%- include page-title.html -%}
+
+        {{- content -}}
+
+        {%- include meta.html -%}
+        {%- include comments.html -%}
+        </div>
+    </main>
+
+    {%- include footer.html -%}
+</div>

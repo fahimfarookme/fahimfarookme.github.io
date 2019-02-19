@@ -1,0 +1,7 @@
+{%- if page.tags -%}
+  <div class="fos-tags">
+    {%- for tag in page.tags -%}
+      <a href="{{- site.baseurl -}}/tags#{{- tag -}}">#{{- tag -}}</a>
+    {%- endfor -%}
+  </div>
+{%- endif -%}

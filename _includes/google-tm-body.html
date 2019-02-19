@@ -1,0 +1,11 @@
+{%- if site.data.analytics.google.tag-manager-id -%}
+    <!-- google tag manager (noscript) -->
+    <noscript>
+        <iframe src="https://www.googletagmanager.com/ns.html?id={{- site.data.analytics.google.tag-manager-id -}}"
+                height="0" 
+                width="0" 
+                style="display:none;visibility:hidden">
+        </iframe>
+    </noscript>
+    <!-- end google tag manager (noscript) -->
+{%- endif -%}

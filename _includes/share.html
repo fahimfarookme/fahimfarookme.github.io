@@ -1,0 +1,10 @@
+{%- if page.page-share && site.data.social-networks.page-share -%}
+  <ul class="fos-social-icons d-flex pl-0">
+    {%- for share in site.data.social-networks.page-share -%}
+      {%- assign element = site.data.social-networks[share] -%}
+      {%- if element && element.share-url -%}
+        <li><a href="{{- element.share-url -}}{{- site.url -}}{{- page.url -}}" rel="noopener noreferrer" target="_blank"><i class="{{- element.icon -}}"></i></a></li>
+      {%- endif -%}
+    {%- endfor -%}
+  </ul>
+{%- endif -%}
