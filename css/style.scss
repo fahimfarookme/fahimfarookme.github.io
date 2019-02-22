@@ -413,6 +413,17 @@ h1, h2, h3, h4, h5, h6 {
 	margin-left: -2rem;
 }
 
+@include media-breakpoint-down(sm) {
+	.fos-topbar {
+		flex-direction: row-reverse !important;
+		
+		.fos-fixed-col {
+			margin-left: 0px;
+			margin-right: 15px;
+		}
+	}
+}
+
 // .fos-menu-icon {	
 // 	svg {
 // 		fill: lighten($grey, 10%);
