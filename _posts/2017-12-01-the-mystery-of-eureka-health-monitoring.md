@@ -6,7 +6,7 @@ tags: [migrated, microservices, eureka, spring-cloud, monitoring]
 image:
 ---
 
-Even though I'm fairly experienced with designing and configuring systems with health monitoring when I first started configuring Eureka health-checks, I had to put some considerable effort to find out answers to a few *why* and *when* questions. This post is to complement the Spring Cloud Netflix Eureka documentation on Health Checks with my findings.
+Even though I'm fairly experienced with designing and configuring systems with health monitoring, when I first started configuring Eureka health-checks, I had to put some considerable effort to find out answers to a few *why* and *when* questions. This post is to complement the Spring Cloud Netflix Eureka documentation on Health Checks with my findings.
 
 To begin with, let's look at the description of one of the configurations from the documentation.
 
@@ -67,7 +67,7 @@ Eureka clients (or servers) never invoke the `/health` endpoint to determine the
 
 Eureka allows custom `HealthCheckHandlers` to be plugged-in through the `EurekaClient#registerHealthCheck()` API. Spring Cloud leverages this extension point to register a new handler, `EurekaHealthCheckHandler`, if the following property is set.
 
-```
+```properties
 eureka.client.healthcheck.enabled=true
 ```
 
@@ -82,16 +82,16 @@ and mapping the aggregated status into one of Eureka supported statuses. This st
 ## Eureka client health endpoints
 Eureka clients `POST` a `healthCheckUrl` in the payload when they are registering themselves with the server. The value of the `healthCheckUrl` is calculated from the following instance properties.
 
-```
-eureka.instance.health-check-url
-eureka.instance.health-check-url-path
+```properties
+eureka.instance.health-check-url=...
+eureka.instance.health-check-url-path=...
 ```
 
 The default value of the `health-check-url-path` is `/health` which is the spring-boot's default health actuator endpoint that will be ignored if a `heath-check-url` property is set. Ideally you should configure these properties if you implement a custom health endpoint or change the properties impacting the default health endpoint path. i.e.
 
 - If you change the default heath endpoint path
 
-```
+```properties
 endpoints.health.path=/new-heath
 # configure either a relative path
 eureka.instance.health-check-url-path=${endpoints.health.path}
@@ -101,7 +101,7 @@ eureka.instance.health-check-url=http://${eureka.hostname}:${server.port}/${endp
 
 - If you introduce a `management.context-path`
   
-```
+```properties
 management.context-path=/admin
 # configure either a relative path
 eureka.instance.health-check-url-path=${management.context-path}/health
@@ -113,11 +113,11 @@ eureka.instance.health-check-url=http://${eureka.hostname}:${server.port}/${mana
 ## Making use of health status
 Eureka servers do not care much about what a client's status is — except it just records it. When somebody queries its registry with the following API, it will publish the client’s health status as well, along with many other information.
 
-``
-GET /eureka/apps/ORDER-SERVICE
-``
-
 ```
+GET /eureka/apps/ORDER-SERVICE
+```
+
+```xml
 <application>
   <name>ORDER-SERVICE</name>
   <instance>
