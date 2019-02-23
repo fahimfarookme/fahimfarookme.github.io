@@ -1,10 +1,13 @@
 {%- if page.title -%}
 <div class="fos-title row">
-  {%- include menu-icon.html -%}
+  <div class="fos-fixed-col d-flex justify-content-start align-items-start">
+    {%- include menu-icon.html -%}
+  </div>
+
   <header class="col">
     <h1>{{- page.title -}}</h1>
     {%- if page.description -%}
-      <p class="subtitle">{{- page.description -}}</p>
+    <p class="subtitle">{{- page.description -}}</p>
     {%- endif -%}
   </header>
 </div>

@@ -1,5 +1,8 @@
 <header class="fos-topbar row">
-  {%- include menu-icon.html -%}
+  <div class="fos-fixed-col d-flex justify-content-start align-items-start">
+    {%- include menu-icon.html -%}
+  </div>
+
   <div class="fos-topbar__brand col d-flex flex-column align-items-start justify-content-start">
     <a href="/">{{- site.title | upcase -}}</a>
     <p>{{- site.description -}}</p>
