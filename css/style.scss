@@ -76,12 +76,12 @@ $input-focus-border-color: 	$primary;
 }
 
 .fos-post {
-	// margin-top: 10.4rem;
-}
-
-.fos-post {
 	.fos-title {
 		margin-top: 10.4rem;
+
+		.fos-menu-icon {
+			display: block;
+		}
 	}
 	
 	.fos-topbar {
@@ -93,6 +93,10 @@ $input-focus-border-color: 	$primary;
 	.fos-post {
 		.fos-title {
 			margin-top: 0rem;
+
+			.fos-menu-icon {
+				display: none;
+			}
 		}
 		
 		.fos-topbar {
