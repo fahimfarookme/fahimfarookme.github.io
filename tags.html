@@ -28,7 +28,7 @@ permalink: /tags/
         <ul>
         {%-  for post in site.tags[tag] -%}
             <li class="d-flex flex-row justify-content-start align-items-end bullet">
-                <a href="{{- site.url -}}{{- post.url -}}" class="underline">{{- post.title -}}</a>
+                <a href="{{- post.url -}}" class="underline">{{- post.title -}}</a>
                 <span class="color-grey">&nbsp;-&nbsp;</span>
                 {%- include date.html date=post.date -%}
             </li>
