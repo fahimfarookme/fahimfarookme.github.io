@@ -1,8 +1,8 @@
 <figure>
     {%- if include.description -%}
-    <img src="{{ include.src }}" alt="{{ include.description }}">
-    <figcaption>{{ include.description }}</figcaption>
-    {%- elseif -%}
-    <img src="{{ include.src }}">
+    <img src="{{- include.src -}}" alt="{{- include.description -}}">
+    <figcaption>{{- include.description -}}</figcaption>
+    {%- else -%}
+    <img src="{{- include.src -}}">
     {%- endif -%}
 </figure>

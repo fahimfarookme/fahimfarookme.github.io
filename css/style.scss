@@ -45,262 +45,19 @@ $headings-font-weight: 500;
 $font-weight-normal:   400;
 
 // navigation
-$navigation-width: 15rem; 
+$navigation-width: 15rem;
+
+// forms
+$input-border-radius:				0.2rem;
+$input-border-color:				$grey;
+$input-bg: 									$secondary;
+$input-focus-color:					$black;
+$input-focus-bg:						$secondary;
+$input-focus-border-color: 	$primary;
 
 @import "bootstrap/bootstrap";
 @import "highlight";
-
-// typography -----------------------------------------------------------
-body {
-	border-top: 1px solid $primary;
-	font-family: $font-family-base; 
-	font-size: $p-font-size;
-	color: $body-color;
-	background-color: $body-bg;
-}
-
-h1 {
-	font-family: $font-family-header, serif;
-	font-size: $h1-font-size;
-	font-weight: $headings-font-weight; 
-	line-height: 1.2;
-	margin-top: 7.4rem;
-	margin-bottom: 2rem;
-}
-
-h2 {
-	font-family: $font-family-header, serif;
-	font-size: $h2-font-size;
-	font-weight: $headings-font-weight; 
-	line-height: 1.2;
-	margin-top: 2.8rem;
-	margin-bottom: 1rem;
-}
-
-h3 {
-	font-family: $font-family-header, serif;
-	font-size: $h3-font-size;
-	font-weight: $headings-font-weight; 
-	line-height: 1.2;
-	margin-top: 2.8rem;
-	margin-bottom: 1rem;
-}
-
-p {
-	font-family: $font-family-base, serif;
-	font-size: $p-font-size;
-	font-weight: $font-weight-normal; 
-	line-height: 1.5;
-	margin-bottom: 1.4rem;
-
-	&.subtitle {
-    font-family: $font-family-header, serif;
-		font-size: $subtitle-font-size;
-		font-weight: $headings-font-weight; 
-    font-style: italic;
-    line-height: 1.2;
-    margin-top: -1.2rem;
-    margin-bottom: 2.8rem;
-	}
-}
-
-.numeral { 
-	font-family: $font-family-numeral; 
-}
-
-::selection {
-	background: $selection-color;
-}
-
-a {
-	&::selection {
-		color: $black;
-	}
-}
-
-blockquote { 
-	margin-top: 2.8rem;
-	margin-bottom: 2.8rem;
-	// margin-left: 1.4rem;
-	padding-left: 1.4rem;
-	border-left: 1px solid $grey;
-
-	p {
-		font-style: italic
-	}
-
-	footer {
-		font-style: normal;
-		text-align: right;
-
-		cite: {
-			font-style: italic;
-		}
-	}
-}
-
-code {
-  font-family: $font-family-monospace;
-  font-size: 1rem;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 1.4;
-  color: $black;
-  background-color: $secondary;
-}
-
-pre {
-  margin-top: 2.8rem;
-	margin-bottom: 2.8rem;
-	padding-left: 1.4rem;
-  border-left: 1px solid $grey;
-  line-height: 1.4;
-
-  code {
-    font-size: 1rem;
-  }
-}
-
-ol, ul {
-	font-family: $font-family-base, serif;
-	font-size: $p-font-size;
-	font-weight: $font-weight-normal; 
-	line-height: 1.5;
-	margin-bottom: 1.4rem;
-
-	li {
-		&:not(:first-child) { 
-			margin-top: 0.7rem;
-		}
-	}
-}
-
-// -----
-figure {
-	padding: 0;
-	border: 0;
-	margin: 0;
-
-	img {
-		margin-bottom: 1.4rem;
-		max-width: 100%;
-	}
-
-	figcaption {
-		margin-bottom: -1.4rem;
-		margin-bottom: 2.2rem;
-		font-size: 1rem;
-		line-height: 1.5;
-	}
-}
-
-@mixin underline($background-color, $underline-color) {
-	background: -webkit-linear-gradient($background-color, $background-color), 
-							-webkit-linear-gradient($background-color, $background-color), 
-							-webkit-linear-gradient($underline-color, $underline-color);
-	background: linear-gradient($background-color, $background-color), 
-							linear-gradient($background-color, $background-color), 
-							linear-gradient($underline-color, $underline-color);
-	-webkit-background-size: 0.05em 1px, 0.05em 1px, 1px 1px;
-	-moz-background-size: 0.05em 1px, 0.05em 1px, 1px 1px;
-	background-size: 0.05rem 1px, 0.05rem 1px, 1px 1px;
-	background-repeat: no-repeat, no-repeat, repeat-x;
-	text-shadow: 0.03rem 0 $background-color, 
-								-0.03rem 0 $background-color, 
-								0 0.03rem $background-color, 
-								0 -0.03rem $background-color, 
-								0.06rem 0 $background-color, 
-								-0.06rem 0 $background-color, 
-								0.09rem 0 $background-color, 
-								-0.09rem 0 $background-color, 
-								0.12rem 0 $background-color, 
-								-0.12rem 0 $background-color, 
-								0.15rem 0 $background-color, 
-								-0.15rem 0 $background-color;
-	background-position: 0% 93%, 100% 93%, 0% 93%;
-	line-height: 1.5rem;
-
-	&::selection {
-		text-shadow: 0.03rem 0 $selection-color, 
-								 -0.03rem 0 $selection-color, 
-								 0 0.03rem $selection-color, 
-								 0 -0.03rem $selection-color, 
-								 0.06rem 0 $selection-color, 
-								 -0.06rem 0 $selection-color, 
-								 0.09rem 0 $selection-color, 
-								 -0.09rem 0 $selection-color, 
-								 0.12rem 0 $selection-color, 
-								 -0.12rem 0 $selection-color, 
-								 0.15rem 0 $selection-color, 
-								 -0.15rem 0 $selection-color;
-		background: $selection-color;
-	}
-}
-
-@mixin reset-underline {
-	background: none;
-	text-shadow: none;
-}
-
-.underline {
-	@include underline($secondary, $black);
-}
-
-.reset-underline {
-	@include reset-underline();
-}
-
-a {
-	&:link {
-		color: $link-color;
-		text-decoration: $link-decoration;
-	}
-
-	&:visited {
-		color: $link-color;
-	}
-
-	&:hover {
-		color: $link-hover-color;
-		text-decoration: $link-hover-decoration;		
-	}
-}
-
-p {
-	a {
-		@include underline($secondary, $black);
-	}
-}
-
-@mixin header-link {
-	&:link {
-		color: $black;
-		text-decoration: none;
-	}
-
-	&:hover {
-		color: $primary;
-		text-decoration: none;		
-	}
-}
-
-.header-link {
-	@include header-link();
-}
-
-h1, h2, h3, h4, h5, h6 {
-	a {
-		@include header-link();
-	}
-}
-
-input {
-	border-radius: 0.2rem;
-}
-// ------
-
-
-// typography ends ------------------------------------------------------
+@import "typography";
 
 .fos-container {
 	background-color: $secondary;
@@ -730,28 +487,39 @@ input {
 }
 
 
-.color-primary {
-	color: $primary;
+.form-control {
+	border-radius: $input-border-radius;
+	border-color: $input-border-color;
+	background-color: $input-bg;
+
+	&:focus {
+    color: $input-focus-color;
+    background-color: $input-focus-bg;
+    border-color: $input-focus-border-color;
+    box-shadow: none;
+  }
 }
 
-.color-secondary {
+.btn-primary {
 	color: $secondary;
-}
+	background-color: $primary;
+	border-color: $primary;
 
-.color-grey {
-	color: $grey;
-}
+	&:hover {
+		background-color: $primary;
+		border-color: $primary;
+	}
 
-.color-black {
-	color: $black;
-}
+	&:focus {
+		box-shadow: none;
+	}
 
-.color-white {
-	color: $white;
-}
-
-.bullet {
-	&:before {
-		content:"•\0000a0\0000a0";
+	&:active {
+		&:focus {
+				color: $secondary !important;
+				background-color: $primary !important;
+				border-color: $primary !important;
+				box-shadow: none !important;	
+		}
 	}
 }

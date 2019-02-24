@@ -35,7 +35,7 @@ if (typeof FOS === "undefined") {
         },
 
         delayTransition: function () {
-            var delay = 0.3;
+            var delay = 0.2;
             this._$navigation.find("nav a").each(function() {
                 _$(this).css("transition-delay", delay + "s");
                 delay += 0.04;
