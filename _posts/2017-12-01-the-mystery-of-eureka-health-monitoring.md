@@ -19,7 +19,7 @@ If it's hard to comprehend, read on.
 ## Learnt or Taught Monitoring?
 Health checks are performed in order to identify and evict unhealthy (i.e. down, unreachable)  microservices from the Eureka server registry. However, Eureka servers never send keep-alive requests to their registered clients (as opposed to some [Traffic Mangers](https://community.pulsesecure.net/t5/Pulse-Secure-vADC/Feature-Brief-Health-Monitoring-in-Stingray-Traffic-Manager/ta-p/28516)), instead, Eureka clients send heartbeats to Eureka servers.
 
-{% include image.html src="/img/eureka-clients-sending-heartbeats-to-server.svg" description="Eureka clients sending heartbeats to server" %}
+{% include image.html src="/img/eureka-clients-sending-heartbeats-to-server.png" description="Eureka clients sending heartbeats to server" style="width: 398px;" %}
 
 On a side note, I would like to coin the term **Learnt Monitoring** for the approach where servers send keep-alive requests to clients in order to *learn* whether they are healthy; and the term **Taught Monitoring** for the approach where clients send heartbeats to servers in order to *educate* the server on their health status.
 
@@ -53,7 +53,7 @@ The overriding operation (i.e. the `PUT` operation above) is used to take otherw
 PUT /eureka/apps/ORDER-SERVICE/localhost:order-service:8886/status?value=OUT_OF_SERVICE
 ```
 
-{% include image.html src="/img/asgard-overriding-the-status-published-by-instance-heartbeat.svg" description="Asgard is overriding the status which has been published by instance heartbeat" %}
+{% include image.html src="/img/asgard-overriding-the-status-published-by-instance-heartbeat.png" description="Asgard is overriding the status which has been published by instance heartbeat" style="width: 720px;" %}
 
 This will be useful for [red black deployments](https://medium.com/netflix-techblog/deploying-the-netflix-api-79b6176cc3f0) where you run older and newer versions of a microservice for some period of time (in order to easily rollback to older version if the new version is unstable). Once the deployment of the new version is completed and the new version has started serving requests, instances of the older version can be taken `OUT_OF_SERVICE` (without bringing them down) so that they will just stop serving requests.
 
@@ -148,13 +148,13 @@ This information can be leveraged by tools for various purposes.
 - *Client-side load balancers like Ribbon to make load balancing decisions*   
   Ribbon reads the `status` attribute and considers only the instances with `UP` status for load balancing. Ribbon however does not invoke the `healthCheckUrl` but relies on published instance status available in the registry.
 
-  {% include image.html src="/img/ribbon-relies-on-instance-status-in-registry.svg" description="Ribbon relies on the status attribute available in the registry in order to make load balancing decisions" %}
+  {% include image.html src="/img/ribbon-relies-on-instance-status-in-registry.png" description="Ribbon relies on the status attribute available in the registry in order to make load balancing decisions" style="width: 710px;" %}
 
 
 - *Deployment tools like Asgard to make deployment decisions*   
   During rolling deployments, Asgard first deploys one instance of the new version of a microservice and waits till that instance is transitioned to `UP` status - before deploying rest of the instances ([as a risk mitigation strategy](https://github.com/Netflix/eureka/wiki/Integrating-Eureka-and-Asgard)). However, rather than relying on instance status available in the Eureka server registry (i.e. the `status` attribute), Asgard learns instance status by invoking its `healthCheckUrl`. It could be because the value of `status` attribute can be stale (since it's dependent on a few factors as described in the next section) but live health `status` is important in this case in order to avoid deployment delays.
 
-  {% include image.html src="/img/asgard-invoking-healthCheckUrl-until-first-instance-becomes-up.svg" description="Asgard is invoking the healthCheckUrl until the first instance becomes UP" %}
+  {% include image.html src="/img/asgard-invoking-healthCheckUrl-until-first-instance-becomes-up.png" description="Asgard is invoking the healthCheckUrl until the first instance becomes UP" style="width: 510px;" %}
 
 
 ## Accuracy of health status
