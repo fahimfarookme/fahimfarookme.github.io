@@ -21,7 +21,7 @@ Health checks are performed in order to identify and evict unhealthy (i.e. down,
 
 {% include image.html src="/img/eureka-clients-sending-heartbeats-to-server.png" description="Eureka clients sending heartbeats to server" style="width: 398px;" %}
 
-On a side note, I would like to coin the term **Learnt Monitoring** for the approach where servers send keep-alive requests to clients in order to *learn* whether they are healthy; and the term **Taught Monitoring** for the approach where clients send heartbeats to servers in order to *educate* the server on their health status.
+On a side note, I would like to coin the term *Learnt Monitoring* for the approach where servers send keep-alive requests to clients in order to *learn* whether they are healthy; and the term *Taught Monitoring* for the approach where clients send heartbeats to servers in order to *educate* the server on their health status.
 
 Taught monitoring is OK for microservices since it's not much of a burden to embed a client (i.e. Eureka client) who knows how to send heartbeats to a configured set of servers. Also it's obvious that the clients themselves have to determine their health status and Eureka server has to expose some REST operations for clients to publish their heartbeats.
 
