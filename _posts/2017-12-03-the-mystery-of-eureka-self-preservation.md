@@ -16,6 +16,8 @@ Let's try to understand this concept in detail.
 ### A healthy system to start with
 Consider the following healthy system.
 
+{% include image.html src="/img/eureka-before-network-partition.png" description="The healthy system - before encountering any network partitions" style="width: 758px;" %}
+
 Suppose that all the microservices are healthy and registered with the Eureka server 1. In case if you are wondering why, that's because Eureka clients register with and send heartbeats only to the very first server configured in `service-url` list. i.e.
 
 ```properties
@@ -28,9 +30,13 @@ Eureka servers replicate the registry information with adjacent peers and the re
 ### Encountering a network partition
 Assume a network partition had happened and the system has been transitioned to the following state.
 
+{% include image.html src="/img/eureka-during-network-partition.png" description="The system during a network partition - Eureka servers enter the self-preservation mode" style="width: 758px;" %}
+
 Due to the network partition instance 4 and 5 lost connectivity with the Eureka server, however instance 2 is still having connectivity to instance 4. The Eureka server will then evict instance 4 and 5 from the registry since the server no longer receive heartbeats. Then it will start to observe that it has lost more than 15% of the heartbeats suddenly and consequently enter the self-preservation mode.
 
 From now onward the Eureka server stops expiring instances in the registry even if remaining instances go down.
+
+{% include image.html src="/img/eureka-during-self-preservation.png" description="The system during the self-preservation mode - Eureka servers stop expiring any microservice instances"  style="width: 599px;"%}
 
 Instance 3 has gone down, but it remains in active state in the server registry. However the Eureka servers accept new registrations.
 
