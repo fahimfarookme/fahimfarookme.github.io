@@ -18,7 +18,7 @@ Consider the following healthy system.
 
 {% include image.html src="/img/eureka-before-network-partition.png" description="The healthy system - before encountering any network partitions" style="width: 758px;" %}
 
-Suppose that all the microservices are healthy and registered with the Eureka server 1. In case if you are wondering why, that's because Eureka clients register with and send heartbeats only to the very first server configured in `service-url` list. i.e.
+Suppose that all the microservices are healthy and registered with the Eureka server 1. In case if you are wondering why, that's because Eureka clients register with and send heartbeats only to the very first server configured in `service-url` list. i.e.
 
 ```properties
 eureka.client.service-url.defaultZone=server1,server2
